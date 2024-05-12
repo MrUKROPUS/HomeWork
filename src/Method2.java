@@ -8,9 +8,10 @@ public class Method2 {
     }
 
     private static void checkSumSign() {
-        int a = 25;
-        int b = 5;
+        int a = 25, b = 5;
         int res = a + b;
+
+
         System.out.println("Сумма положительная: " + res);
 
 
