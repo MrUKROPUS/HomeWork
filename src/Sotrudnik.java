@@ -1,11 +1,9 @@
 public class Sotrudnik {
-
     public static void main(String[] args) {
         User user1 = new User(1, "Вдовин Данил Валерьевич", "Стажёр AQA Java", 28, "mrukropus@gmail.com", 5555555, 30000);
         user1.info();
     }
     public static class User {
-
         private int id;
         private String name;
         private String position;

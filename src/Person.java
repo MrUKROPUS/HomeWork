@@ -1,5 +1,8 @@
 public class Person {
 
+    public Person(String name, String position, String email, String number, int age, int salary) {
+    }
+
     public static void main(String[] args) {
 
         Person[] persArray = new Person[5];
