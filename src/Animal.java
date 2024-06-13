@@ -1,9 +1,12 @@
 public abstract class Animal {
     abstract void run(int distance);
+
     abstract void swim(int distance);
 }
+
 class Dog extends Animal {
     private static int count = 0;
+
     @Override
     void run(int distance) {
         if (distance <= 500) {
@@ -12,6 +15,7 @@ class Dog extends Animal {
             System.out.println("Собачка не может пробежать такое расстояние");
         }
     }
+
     @Override
     void swim(int distance) {
         if (distance <= 10) {
@@ -20,16 +24,20 @@ class Dog extends Animal {
             System.out.println("Собачка не может проплыть такое расстояние");
         }
     }
+
     public Dog() {
         count++;
     }
+
     public static int getCount() {
         return count;
     }
 }
+
 class Cat extends Animal {
     private static int count = 0;
     private boolean isFull = false;
+
     @Override
     void run(int distance) {
         if (distance <= 200) {
@@ -38,16 +46,20 @@ class Cat extends Animal {
             System.out.println("Котик не может пробежать такое расстояние");
         }
     }
+
     @Override
     void swim(int distance) {
         System.out.println("Котик не умеет плавать");
     }
+
     public Cat() {
         count++;
     }
+
     public static int getCount() {
         return count;
     }
+
     public void eat(int amount) {
         if (amount > 0) {
             isFull = true;
@@ -56,10 +68,12 @@ class Cat extends Animal {
             System.out.println("В миске нет столько еды");
         }
     }
+
     public boolean isFull() {
         return isFull;
     }
 }
+
 class Main {
     public static void main(String[] args) {
         Cat[] cats = new Cat[3];
