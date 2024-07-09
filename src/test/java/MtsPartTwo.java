@@ -1,11 +1,6 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,26 +9,26 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MtsPartTwo {
     private WebDriver driver;
     private WebDriverWait wait;
     private static final String URL = "https://www.mts.by/";
 
-    @BeforeClass
+    @BeforeAll
     public static void setupClass() {
         WebDriverManager.chromedriver().driverVersion("126.0.6478.127").setup();
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -51,6 +46,11 @@ public class MtsPartTwo {
     }
 
     @Test
+    @Epic("MTS Website")
+    @Feature("Placeholders Verification")
+    @Story("Verify placeholders for all services")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that placeholders for all services are correct")
     public void testPlaceholdersForAllServices() throws InterruptedException {
         driver.get(URL);
         acceptCookies();
@@ -106,6 +106,11 @@ public class MtsPartTwo {
     }
 
     @Test
+    @Epic("MTS Website")
+    @Feature("Form Submission")
+    @Story("Fill connection services form and verify details")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that the connection services form can be filled and details are correct")
     public void testFillConnectionServicesFormAndVerifyDetails() {
         driver.get(URL);
         acceptCookies();
